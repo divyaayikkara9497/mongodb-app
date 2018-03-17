@@ -1,0 +1,53 @@
+<div class="container">
+	<div class="section">
+		<div class="row">
+			<div class="col s12">
+				<h3 class="center"> Welcome to Scraper News!</h3>
+				{{#each articles}}
+				<div class="row">
+					<div class="col s12">
+						<div class="card">
+							<div class="card-content black-text">
+								<span class="card-title">{{this.title}}</span>
+								<p>{{this.text}} </p>
+							</div>
+							<div class="card-action">
+								<a href="{{this.link}}">Read the full article here!</a>
+							</div>
+							<div class="collapsible-header"><i class="material-icons">comment</i>Add a Comment</div>
+							<div class="collapsible-body">
+								<form id="form-add-{{_id}}" action="add/comment/{{_id}}" method="post">
+									<!-- Author Name -->
+									<div class="row">
+										<div class="input-field col s2"></div>
+										<div class="input-field col s8">
+											<input id="author_name" name="name" type="text" class="validate">
+											<label for="author_name">Your Name:</label>
+										</div>
+									</div>
+									<!-- Comment Name -->
+									<div class="row">
+										<div class="input-field col s2"></div>
+										<div class="input-field col s8">
+											<textarea id="comment_box" name="comment" class="materialize-textarea"></textarea>
+											<label for="comment_box">Your Reaction:</label>
+										</div>
+									</div>
+									<!-- Submit Button -->
+									<div class="row">
+										<div class="input-field col s2"></div>
+										<div class="input-field col s8">
+											<center><input class="btn add-comment-button" data-id="{{_id}}" type="submit" value="Submit"></center>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+</div>
+
